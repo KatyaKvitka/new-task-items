@@ -1,0 +1,32 @@
+<div fxLayout="row" fxLayout.xs="column" 
+        fxLayout.sm="column">
+    
+    <div fxFlex="50%" >
+        <div  class="wrap-section">
+        <div class="items-wrap">
+            <h2>Items</h2>
+
+            <form id="itemsForm" name="items_form" #itemsForm="ngForm" (ngSubmit)="addItem()" fxLayout="row">
+                <input type="text"  name="user_name" placeholder="Type name here..." [(ngModel)]="newItem" required >
+                
+                <button type="submit" md-button class="add_button" [disabled]="!itemsForm.form.valid">Add new</button>
+            </form>
+        </div>
+        <section class="wrap-items">
+            <div *ngFor="let item of items; let i=index" (click)="onSelect(item, i)" [@itemAnim] [class.selected]="item === selectedItem"  class="list-items">
+               <div class="liner wrap-title" fxLayout="row">
+                    <div>
+                        {{item.title}} 
+                        
+                        <span class="mass_count">{{item.messages.length}}</span>
+                    </div>
+                    <div class="button_wrap">
+                        <button md-button (click)="deleteItem(i, item )" class="delete_button" >Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+    <messages *ngIf="selectedItem" [item]="selectedItem" [indexMass]="selectIndex" fxFlex="50%"></messages>
+</div>

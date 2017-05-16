@@ -1,0 +1,22 @@
+<div class="main-wrap">    
+    <md-sidenav-container>
+ 
+        <md-sidenav #sidenav mode="side" opened="true">
+            <h1>Main</h1>
+
+            <div class="example-scrolling-content">
+                <ul>
+                    <li class="select_nav">
+                        <a routerLink="">Overview</a>
+                    </li>
+                </ul>
+            </div>
+        </md-sidenav>
+
+        <div class="example-scrolling-content">
+            
+            <router-outlet></router-outlet>
+            
+        </div>
+    </md-sidenav-container>
+</div>

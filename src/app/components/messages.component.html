@@ -1,0 +1,19 @@
+<div class="wrap-section wrap-comments">
+    <h2>Comments # {{indexMass+1}}</h2>
+
+    <section>
+        <div fxLayout="row" *ngFor="let mess of item.messages; let i = 'index'" class="liner wrap-mass" > 
+            <div>
+                <div class="photo" *ngIf="i%2 == 0" [ngClass]="'one'"></div>
+                <div class="photo" *ngIf="i%2 == 1" [ngClass]="'two'"></div>
+            </div>
+            <div class="mass">{{mess}}</div>
+        </div> 
+        <form id="commentForm" name="main_form" action="#" #messagesForm="ngForm" (keydown)="addMass($event)" fxLayout="row">
+            <div class="photo default"></div>
+            <input type="text" class="message-input" name="message" [(ngModel)]="newMass" required="" required/>
+        </form>    
+    </section>
+
+    
+</div>
